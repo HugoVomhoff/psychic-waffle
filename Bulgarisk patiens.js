@@ -3,15 +3,27 @@ let kör = false
 let resultat = []
 antal_högar = prompt("hur många högar?")
 
+function sortera(array){
+    let Fixad_array = []
+    x = array.length
+    
+    while(x > Fixad_array.length){
+        let index;
+        Fixad_array.push(Math.min(...array))
+        index = array.indexOf(Math.min(...array))
+        array.splice(index, 1)
+    }
+    return Fixad_array
+}
+
 for (i=0; i < antal_högar; i++) {
     korthög.push(Math.ceil(Math.random()* 10))
     
 }
-
-korthög.sort()
 console.log(korthög)
 
-resultat.push(korthög)
+
+resultat.push(sortera(korthög))
 console.log(resultat)
 kör = true
 

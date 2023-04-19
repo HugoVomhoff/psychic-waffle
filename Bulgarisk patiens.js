@@ -1,5 +1,5 @@
 let korthög = []
-let kör = true
+let kör = false
 let resultat = []
 antal_högar = prompt("hur många högar?")
 
@@ -13,6 +13,7 @@ console.log(korthög)
 
 resultat.push(korthög)
 console.log(resultat)
+kör = true
 
 
 

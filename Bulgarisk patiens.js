@@ -18,19 +18,12 @@ function sortera(array){
 
 for (i=0; i < antal_högar; i++) {
     korthög.push(Math.ceil(Math.random()* 10))
-    
 }
-console.log(korthög)
-
 
 resultat.push(sortera(korthög))
-console.log(resultat)
 kör = true
 
-
-
 // poppa sneare kanske
-
 
 while(kör === true){
 

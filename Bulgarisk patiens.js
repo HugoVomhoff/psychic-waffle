@@ -1,53 +1,54 @@
-let korthög = []
-let kör = false
+let cardStack = []
+let run = false
 let resultat = []
-antal_högar = prompt("hur många högar?")
+let numberofStacks = prompt("hur många högar?")
 
-function sortera(array){
-    let Fixad_array = []
-    x = array.length
+function sort(array){
+    let fixedArray = []
+    x = [...array]
     
-    while(x > Fixad_array.length){
-        let index;
-        Fixad_array.push(Math.min(...array))
+    for(let i of x){
+        fixedArray.push(Math.min(...array))
         index = array.indexOf(Math.min(...array))
         array.splice(index, 1)
     }
-    return Fixad_array
+    return fixedArray
 }
 
-for (i=0; i < antal_högar; i++) {
-    korthög.push(Math.ceil(Math.random()* 10))
+for (i=0; i < numberofStacks; i++) {
+    cardStack.push(Math.ceil(Math.random()* 10))
 }
 
-resultat.push(sortera(korthög))
-kör = true
+resultat.push(sort(cardStack))
+run = true
 
 // poppa sneare kanske
 
-while(kör === true){
 
-    for (i=0; i < korthög.length; i++){
-        korthög[i] = (korthög[i] - 1)
+/*
+while(run === true){
+
+    for (i=0; i < cardStack.length; i++){
+        cardStack[i] = (cardStack[i] - 1)
     }
 
-    korthög.push(korthög.length)
+    cardStack.push(cardStack.length)
 
-    for (i=0; i < korthög.length; i++){
-        if (korthög[i] == 0){
-            korthög.pop(i)
+    for (i=0; i < cardStack.length; i++){
+        if (cardStack[i] == 0){
+            cardStack.pop(i)
             i -= 1
             }
     
         }
     
     
-    if(resultat.includes(korthög)){
+    if(resultat.includes(cardStack)){
         
-        console.log(korthög)
+        console.log(cardStack)
         console.log(resultat)
 
-        if(resultat[resultat.length - 1] === korthög){
+        if(resultat[resultat.length - 1] === cardStack){
             console.log("WINNER")
         }
             
@@ -59,6 +60,7 @@ while(kör === true){
     }
 
     
-    resultat.push(korthög)
-    console.log(korthög)
+    resultat.push(cardStack)
+    console.log(cardStack)
 }
+*/

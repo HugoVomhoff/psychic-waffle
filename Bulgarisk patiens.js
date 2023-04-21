@@ -22,7 +22,7 @@ for (i=0; i < numberofStacks; i++) {
     cardStack.push(Math.ceil(Math.random()* 10))
 }
 
-cardStack.push(sort(cardStack))
+//cardStack.push(sort(cardStack))
 results.push([...cardStack])
 
 console.log(cardStack)
@@ -31,10 +31,8 @@ console.log(results)
 // poppa sneare kanske
 
 while(run === true){
-
-    alert(cardStack)
     
-    for (i=0; i < 5; i++){
+    for (i=0; i < cardStack.length; i++){
         alert(cardStack)
         x = cardStack[i]
         alert(x)
@@ -42,16 +40,17 @@ while(run === true){
     }
 
     cardStack.push(5)
-    cardStack.push(sort(cardStack)) 
+    //cardStack.push(sort(cardStack))
     
-    for (i=0; i < cardStack.length; i++){
+    /*for (i=0; i < cardStack.length; i++){
         if (cardStack[i] === 0){
             cardStack.pop(i)
             i -= 1
             }
         }
+*/
+    alert(cardStack)
 
-    
     if(results.includes(cardStack)){
         
         console.log(cardStack)

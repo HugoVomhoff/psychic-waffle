@@ -1,34 +1,22 @@
 .body {
-     background-color:  rgb(172, 240, 240);
-    } 
+  background-color: white;
+} 
 .Parent {
   display: flex;
-  flex-direction: center;
+  flex-direction: row;
 }
 
-.leftcol {
-    width: 30%;
-    height: 100vh;
-    background-color: white;
-    text-align: left;
-    color: white;
-    
-  }
-
-  .middlecol {
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    width: 40%;
-    height: 100vh;
-    background-color: white;
-    color: black;
-    
-  }
-  
-  .rightcol {
-    width: 30%;
-    
-    height: 100vh;
-    
-    background-color: white;
-  }
+.spacer {
+  width: 10%;
+}
+.middlecol {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30px;
+  width: 80%;
+  height: 100vh;
+  background-color: beige;
+  border-radius: 30px;
+  border: black solid 3px;
+  color: black;
+}

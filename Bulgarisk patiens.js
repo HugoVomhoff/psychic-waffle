@@ -1,6 +1,6 @@
 let cardStack = []
-let run = false
-let resultat = []
+let run = true
+let results = []
 let numberofStacks = prompt("hur många högar?")
 
 function sort(array){
@@ -15,52 +15,61 @@ function sort(array){
     return fixedArray
 }
 
+
+
+
 for (i=0; i < numberofStacks; i++) {
     cardStack.push(Math.ceil(Math.random()* 10))
 }
 
-resultat.push(sort(cardStack))
-run = true
+cardStack.push(sort(cardStack))
+results.push([...cardStack])
+
+console.log(cardStack)
+console.log(results)
 
 // poppa sneare kanske
 
-
-/*
 while(run === true){
 
-    for (i=0; i < cardStack.length; i++){
-        cardStack[i] = (cardStack[i] - 1)
+    alert(cardStack)
+    
+    for (i=0; i < 5; i++){
+        alert(cardStack)
+        x = cardStack[i]
+        alert(x)
+        cardStack[i] = x - 1    
     }
 
-    cardStack.push(cardStack.length)
-
+    cardStack.push(5)
+    cardStack.push(sort(cardStack)) 
+    
     for (i=0; i < cardStack.length; i++){
-        if (cardStack[i] == 0){
+        if (cardStack[i] === 0){
             cardStack.pop(i)
             i -= 1
             }
-    
         }
+
     
-    
-    if(resultat.includes(cardStack)){
+    if(results.includes(cardStack)){
         
         console.log(cardStack)
-        console.log(resultat)
+        console.log(results)
 
-        if(resultat[resultat.length - 1] === cardStack){
+        if(results[results.length - 1] === cardStack){
             console.log("WINNER")
         }
             
         else{
             console.log("det går inte ut")  
         }
-        kör = false
-       
+       run = false
     }
 
+    results.push([...cardStack])
+
     
-    resultat.push(cardStack)
+    results.push(cardStack)
     console.log(cardStack)
 }
-*/

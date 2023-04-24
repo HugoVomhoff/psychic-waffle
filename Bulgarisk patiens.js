@@ -2,7 +2,7 @@ let cardStack = []
 let run = true
 let results = []
 let numberofStacks = prompt("hur många högar?")
-let x = 0
+let y = 0
 
 function sort(array){
     let fixedArray = []
@@ -26,7 +26,6 @@ for (i=0; i < numberofStacks; i++) {
 cardStack = sort(cardStack)
 results.push([...cardStack])
 
-console.log(cardStack)
 console.log(results)
 
 // poppa sneare kanske
@@ -34,11 +33,9 @@ console.log(results)
 while(run === true){
     
     for (i=0; i < cardStack.length; i++){
-        console.log(cardStack)
-        cardStack[i] = cardStack[i] - 1  
-        console.log(cardStack)  
+        cardStack[i] = cardStack[i] - 1   
     } 
-
+ 
     cardStack.push(cardStack.length)
     cardStack = sort(cardStack)
     
@@ -47,11 +44,9 @@ while(run === true){
             }
 
 
-
-    console.log(cardStack)
     if(results.includes(cardStack)){
         
-        console.log(cardStack)
+        
         console.log(results)
 
         if(results[results.length - 1] === cardStack){
@@ -66,13 +61,12 @@ while(run === true){
 
     results.push([...cardStack])
 
-    
-    results.push(cardStack)
     console.log(cardStack)
 
-    x+= 1
+    y += 1
 
-    if(x==100){
-        run = false
+    if(y == 25){
+        run = false 
     }
+    console.log(y)
 }

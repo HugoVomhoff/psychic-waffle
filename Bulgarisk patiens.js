@@ -34,9 +34,8 @@ while(run === true){
     
     for (i=0; i < cardStack.length; i++){
         alert(cardStack)
-        x = cardStack[i]
-        alert(x)
-        cardStack[i] = x - 1    
+        cardStack[i] = cardStack[i] - 1    
+        alert(cardStack)
     }
 
     cardStack.push(5)

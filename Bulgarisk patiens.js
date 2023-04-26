@@ -17,8 +17,6 @@ function sort(array){
 }
 
 
-
-
 for (i=0; i < numberofStacks; i++) {
     cardStack.push(Math.ceil(Math.random()* 10))
 }
@@ -44,19 +42,24 @@ while(run === true){
             }
 
 
-    if(results.includes(cardStack)){
+    for(i=0; i<results.length; i++){
         
         
-        console.log(results)
+        if(results[i].toString() == cardStack.toString()){
+        
+        
+            console.log(results)
+    
+            if(results[results.length - 1].toString() == cardStack.toString()){
+                console.log("WINNER")
+            }
+                
+            else{
+                console.log("det går inte ut")  
+            }
+        run = false
 
-        if(results[results.length - 1] === cardStack){
-            console.log("WINNER")
-        }
-            
-        else{
-            console.log("det går inte ut")  
-        }
-       run = false
+    }
     }
 
     results.push([...cardStack])
@@ -64,8 +67,12 @@ while(run === true){
     console.log(cardStack)
 
     y += 1
+    if(run == false){
+        break
+    }
 
-    if(y == 25){
+    if(y == 50){
+        console.log("det går inte ut")
         run = false 
     }
     console.log(y)

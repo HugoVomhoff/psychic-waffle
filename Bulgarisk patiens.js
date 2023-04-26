@@ -67,6 +67,7 @@ while(run === true){
     console.log(cardStack)
 
     y += 1
+    
     if(run == false){
         break
     }

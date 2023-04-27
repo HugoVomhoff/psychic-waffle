@@ -20,11 +20,9 @@ function scenetoggle(){
     var haha = document.getElementsByClassName("ett");
     for (var i = 0; i < haha.length; i++) {
         haha[i].style.opacity = "0.0"}
-        document.getElementById("knapp1").style.bottom = "5000px";
-        document.getElementById("knapp2").style.bottom = "5000px";
-        document.getElementById("input").style.bottom = "5000px";
-        document.getElementById("input2").style.bottom = "5000px";
-        document.getElementById("körknapp").style.bottom = "5000px";
+    var haha = document.getElementsByClassName("ett");
+    for (var i = 0; i < haha.length; i++) {
+        haha[i].style.bottom = "5000px"}
         flip = false}
     else {
         var yo = document.getElementsByClassName("ett");
@@ -35,6 +33,9 @@ function scenetoggle(){
         document.getElementById("input").style.bottom = "350px";
         document.getElementById("input2").style.bottom = "225px";
         document.getElementById("körknapp").style.bottom = "130px";
+        document.getElementById("FL").style.bottom = "275px";
+        document.getElementById("FU").style.bottom = "80px";
+        document.getElementById("FAILSAFE").style.bottom = "150px"
         flip = true
     }
 }

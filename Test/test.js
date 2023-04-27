@@ -31,7 +31,8 @@ function scenetoggle(){
 
 function Kör(){
     numberofStacks = document.getElementById("input2").value;
-    if (isNan(numberofStacks) == false){
+    numberofCards = document.getElementById("input").value;
+    if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != ""){
     scenetoggle()
    
 

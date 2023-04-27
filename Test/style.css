@@ -46,6 +46,13 @@ input{
     border-color:gray
 }
 
+#FAILSAFE {
+    font-size:25px;
+    position:fixed;
+    bottom:150px;
+    left:450px;
+}
+
 #knapp1{
     position:fixed;
     bottom: 350px;
@@ -67,4 +74,22 @@ input{
     border-width:2px;
     border-color:gray;
 }
-    
+
+#körknapp {
+    position:fixed;
+    height:40px;
+    width:100px;
+    bottom:130px;
+    left:45%;
+    border-width: 2px;
+    border-color:gray;
+    background-color: aquamarine;
+    border-radius:8px;
+}
+
+.två {
+    height:40px;
+    width:100px;
+    bottom:130px;
+    left:45%;
+}

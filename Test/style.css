@@ -28,7 +28,7 @@ input{
     height: 34px;
     width: 275px;
     bottom:350px;
-    left: 430px;
+    left: 475px;
     border-radius: 8px;
     border-width:2px;
     border-color:gray
@@ -40,7 +40,7 @@ input{
     height: 34px;
     width: 275px;
     bottom:225px;
-    left: 430px;
+    left: 475px;
     border-radius: 8px;
     border-width:2px;
     border-color:gray
@@ -51,28 +51,6 @@ input{
     position:fixed;
     bottom:150px;
     left:450px;
-}
-
-#knapp1{
-    position:fixed;
-    bottom: 350px;
-    left: 725px;
-    height: 40px;
-    width: 100px;
-    border-radius: 8px;
-    border-width:2px;
-    border-color:gray;
-}
-
-#knapp2{
-    position:fixed;
-    bottom: 225px;
-    left: 725px;
-    height: 40px;
-    width: 100px;
-    border-radius: 8px;
-    border-width:2px;
-    border-color:gray;
 }
 
 #körknapp {

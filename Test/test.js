@@ -5,16 +5,7 @@ let check2 = 0;
 let save;
 let flip = true
 
-function Fåvärde1(){
-    numberofCards = document.getElementById("input").value;
-    check1 = 1
-    
-}
-function Fåvärde2(){
-    numberofStacks = document.getElementById("input2").value;
-    check2 = 1
 
-}
 function scenetoggle(){
     if (flip == true){
     var haha = document.getElementsByClassName("ett");
@@ -116,6 +107,6 @@ function Kör(){
         console.log(y)
     }
 }
-else {document.getElementById("FAILSAFE").innerHTML = "Du måste fylla i två värden!";}
+else {document.getElementById("FAILSAFE").innerHTML = "Du måste fylla i två värden! (nummer)";}
 }
 

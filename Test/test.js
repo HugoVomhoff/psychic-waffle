@@ -19,29 +19,19 @@ function scenetoggle(){
     if (flip == true){
     var haha = document.getElementsByClassName("ett");
     for (var i = 0; i < haha.length; i++) {
-        haha[i].style.opacity = "0.0"}
-    var haha = document.getElementsByClassName("ett");
-    for (var i = 0; i < haha.length; i++) {
-        haha[i].style.bottom = "5000px"}
+        haha[i].style.visibility = "hidden"}
         flip = false}
     else {
-        var yo = document.getElementsByClassName("ett");
-        for (var i = 0; i < yo.length; i++) {
-        yo[i].style.opacity = "1.0"}
-        document.getElementById("knapp1").style.bottom = "350px";
-        document.getElementById("knapp2").style.bottom = "225px";
-        document.getElementById("input").style.bottom = "350px";
-        document.getElementById("input2").style.bottom = "225px";
-        document.getElementById("körknapp").style.bottom = "130px";
-        document.getElementById("FL").style.bottom = "275px";
-        document.getElementById("FU").style.bottom = "80px";
-        document.getElementById("FAILSAFE").style.bottom = "150px"
-        flip = true
+        var haha = document.getElementsByClassName("ett");
+    for (var i = 0; i < haha.length; i++) {
+        haha[i].style.visibility = "visible"}
+        flip = true}
     }
-}
+
 
 function Kör(){
-    if (check1 + check2 == 2){
+    numberofStacks = document.getElementById("input2").value;
+    if (isNan(numberofStacks) == false){
     scenetoggle()
    
 

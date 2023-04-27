@@ -42,7 +42,6 @@ function scenetoggle(){
 
 function Kör(){
     if (check1 + check2 == 2){
-    alert("Nukörvi")
     scenetoggle()
    
 

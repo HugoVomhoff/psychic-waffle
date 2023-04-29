@@ -5,6 +5,7 @@ let check1 = 0;
 let check2 = 0;
 let save;
 let flip = true
+let speed = 0.2
 
 
 
@@ -56,8 +57,11 @@ function scenetoggle(){
         flip = true}
     }
 
+async function sleep(seconds) {
+        return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+      }
 
-function Kör(){
+async function Kör(){
     numberofStacks = document.getElementById("input2").value;
     numberofCards = document.getElementById("input").value;
     if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != ""){
@@ -97,6 +101,7 @@ function Kör(){
         
         tabort()
         PrintaUt(cardStack)
+        await sleep(speed);
         
 
         for (i=0; i < cardStack.length; i++){

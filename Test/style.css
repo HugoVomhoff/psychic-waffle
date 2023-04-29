@@ -65,7 +65,8 @@ input{
     border-radius:8px;
 }
 
-.två {
+.tre{
+    position: fixed;
     height:40px;
     width:100px;
     bottom:130px;

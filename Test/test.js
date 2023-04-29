@@ -1,3 +1,4 @@
+
 let numberofStacks;
 let numberofCards;
 let check1 = 0;
@@ -5,6 +6,42 @@ let check2 = 0;
 let save;
 let flip = true
 
+
+
+function skapakort(x,y){
+const img = document.createElement("img");
+img.src="Images/baksida kort.png" 
+img.style.width = "100px"
+img.style.height = "100px"
+img.style.position = "fixed"
+img.style.top = (30 + x) + "px"
+img.style.left = (20 + y) + "px"
+img.className = "kortar"
+document.body.appendChild(img)
+
+}
+
+function PrintaUt(hej){
+    let O = 0
+    let G = 0
+    while (O <= hej.length){
+        while (G < hej[O]){
+         skapakort(G*30,O*125) 
+         G = G + 1  
+        }
+        G = 0
+        O = O + 1
+    }
+    
+}
+
+function tabort(){
+    var haha = document.getElementsByClassName("kortar")
+    let yo = haha.length.valueOf()
+    for (var i = 0; i < yo ; i++) {
+    haha[0].remove()
+}
+        }
 
 function scenetoggle(){
     if (flip == true){
@@ -58,6 +95,10 @@ function Kör(){
     
     while(run === true){
         
+        tabort()
+        PrintaUt(cardStack)
+        
+
         for (i=0; i < cardStack.length; i++){
             cardStack[i] = cardStack[i] - 1   
         } 
@@ -65,6 +106,8 @@ function Kör(){
         cardStack.push(cardStack.length)
         cardStack = sort(cardStack)
         
+
+
         while(cardStack[0] == 0){
                 cardStack.splice(0, 1)
                 }
@@ -85,6 +128,8 @@ function Kör(){
                 else{
                     console.log("det går inte ut")  
                 }
+                tabort()
+                PrintaUt(cardStack)
             run = false
     
         }
@@ -102,6 +147,8 @@ function Kör(){
     
         if(y == 50){
             console.log("det går inte ut")
+            tabort()
+            PrintaUt(cardStack)
             run = false 
         }
         console.log(y)

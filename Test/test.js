@@ -13,7 +13,6 @@ function skapakort(x,y){
 const img = document.createElement("img");
 img.src="Images/baksida kort.png" 
 img.style.width = "100px"
-img.style.height = "100px"
 img.style.position = "fixed"
 img.style.top = (30 + x) + "px"
 img.style.left = (20 + y) + "px"

@@ -86,9 +86,9 @@ async function sleep(seconds) {
       }
 
 async function Kör(){
-    numberofStacks = document.getElementById("input2").value;
-    numberofCards = document.getElementById("input").value;
-    if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != ""){
+    numberofStacks = Number(document.getElementById("input2").value);
+    numberofCards = Number(document.getElementById("input").value);
+    if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks){
     scenetoggle()
    
 
@@ -110,9 +110,17 @@ async function Kör(){
     }
     
     
+    
     for (i=0; i < numberofStacks; i++) {
-        cardStack.push(Math.ceil(Math.random()* 10))
+        cardStack.push(1)
     }
+    numberofCards -= numberofStacks
+
+    for(i=0; i < numberofCards; i++){
+        allocated_cardstack = Math.floor((Math.random()*numberofStacks))
+        cardStack[allocated_cardstack] += 1
+    }
+
     
     cardStack = sort(cardStack)
     results.push([...cardStack])

@@ -4,10 +4,11 @@ body {
 #FU{
     font-size:25px;
     position:fixed;
-    bottom:80px;
+    bottom:0px;
     left:380px;
     background-color:orange;
     width: 300;
+    height:150px;
     padding: 50px 50px 300px 50px;
     border-style:solid;
     border-color:white;
@@ -18,16 +19,22 @@ body {
 #FL{
     font-size:25px;
     position:fixed;
-    bottom:275px;
+    bottom:325px;
     left:450px;
 }
 
+#FP{
+    font-size:25px;
+    position:fixed;
+    bottom:225px;
+    left:450px;
+}
 input{
     font-size:large;
     position:fixed;
     height: 34px;
     width: 275px;
-    bottom:350px;
+    bottom:400px;
     left: 475px;
     border-radius: 8px;
     border-width:2px;
@@ -39,7 +46,7 @@ input{
     position:fixed;
     height: 34px;
     width: 275px;
-    bottom:225px;
+    bottom:300px;
     left: 475px;
     border-radius: 8px;
     border-width:2px;
@@ -49,7 +56,7 @@ input{
 #FAILSAFE {
     font-size:25px;
     position:fixed;
-    bottom:150px;
+    bottom:105px;
     left:450px;
 }
 
@@ -57,7 +64,7 @@ input{
     position:fixed;
     height:40px;
     width:100px;
-    bottom:130px;
+    bottom:80px;
     left:45%;
     border-width: 2px;
     border-color:gray;
@@ -71,4 +78,26 @@ input{
     width:100px;
     bottom:130px;
     left:45%;
+}
+
+.fart{
+    position:fixed;
+    height:40px;
+    width:100px;
+    border-width: 2px;
+    border-color:gray;
+    border-radius:8px;
+    bottom:185px;
+}
+
+#fartL{
+    left:34%;
+}
+
+#fartM{
+    left:45%;
+}
+
+#fartS{
+    left:56%;
 }

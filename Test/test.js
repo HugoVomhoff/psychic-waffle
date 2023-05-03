@@ -5,7 +5,26 @@ let check1 = 0;
 let check2 = 0;
 let save;
 let flip = true
-let speed = 0.2
+let speed = 1;
+
+function hastighet(ehm){
+    speed = ehm
+    var haha = document.getElementsByClassName("fart")
+    for (var i = 0; i < haha.length; i++) {
+        haha[i].style.opacity = "1"}
+    if (speed == 1){
+        var yo = document.getElementById("fartL")
+        yo.style.opacity = "0.7"
+    }
+    if (speed == 0.5){
+        var yo = document.getElementById("fartM")
+        yo.style.opacity = "0.7"
+    }
+    if (speed == 0.2){
+        var yo = document.getElementById("fartS")
+        yo.style.opacity = "0.7"
+    }
+}
 
 
 
@@ -46,13 +65,19 @@ function tabort(){
 function scenetoggle(){
     if (flip == true){
     var haha = document.getElementsByClassName("ett");
+    var haha2 = document.getElementsByClassName("fart");
     for (var i = 0; i < haha.length; i++) {
         haha[i].style.visibility = "hidden"}
+    for (var i = 0; i < haha2.length; i++) {
+        haha2[i].style.visibility = "hidden"}
         flip = false}
     else {
         var haha = document.getElementsByClassName("ett");
+        var haha2 = document.getElementsByClassName("fart");
     for (var i = 0; i < haha.length; i++) {
         haha[i].style.visibility = "visible"}
+        for (var i = 0; i < haha2.length; i++) {
+            haha2[i].style.visibility = "visible"}
         flip = true}
     }
 

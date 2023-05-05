@@ -7,28 +7,31 @@ let save;
 let flip = true
 let speed = 1;
 
-function hastighet(ehm){
-    speed = ehm
-    var haha = document.getElementsByClassName("fart")
-    for (var i = 0; i < haha.length; i++) {
-        haha[i].style.opacity = "1"}
+function setSpeed(speed_value){
+   
+    var speed_types = document.getElementsByClassName("fart")
+    speed = speed_value
+    
+    for (var i = 0; i < speed_types.length; i++) {
+        speed_types[i].style.opacity = "1"}
+
     if (speed == 1){
-        var yo = document.getElementById("fartL")
-        yo.style.opacity = "0.7"
+        var speed_type = document.getElementById("fartL")
+        speed_type.style.opacity = "0.7"
     }
     if (speed == 0.5){
-        var yo = document.getElementById("fartM")
-        yo.style.opacity = "0.7"
+        var speed_type = document.getElementById("fartM")
+        speed_type.style.opacity = "0.7"
     }
     if (speed == 0.2){
-        var yo = document.getElementById("fartS")
-        yo.style.opacity = "0.7"
+        var speed_type = document.getElementById("fartS")
+        speed_type.style.opacity = "0.7"
     }
 }
 
 
 
-function skapakort(x,y){
+function createCard(x,y){
 const img = document.createElement("img");
 img.src="Images/baksida kort.png" 
 img.style.width = "100px"
@@ -40,12 +43,12 @@ document.body.appendChild(img)
 
 }
 
-function PrintaUt(hej){
+function Print(cardStack){
     let O = 0
     let G = 0
-    while (O <= hej.length){
-        while (G < hej[O]){
-         skapakort(G*30,O*125) 
+    while (O <= cardStack.length){
+        while (G < cardStack[O]){
+         createCard(G*30,O*125) 
          G = G + 1  
         }
         G = 0
@@ -54,30 +57,29 @@ function PrintaUt(hej){
     
 }
 
-function tabort(){
-    var haha = document.getElementsByClassName("kortar")
-    let yo = haha.length.valueOf()
-    for (var i = 0; i < yo ; i++) {
-    haha[0].remove()
+function remove(){
+    var cards = document.getElementsByClassName("kortar")
+    for (var i = 0; i < cards.length.valueOf() ; i++) {
+    cards[0].remove()
 }
         }
 
 function scenetoggle(){
     if (flip == true){
-    var haha = document.getElementsByClassName("ett");
-    var haha2 = document.getElementsByClassName("fart");
-    for (var i = 0; i < haha.length; i++) {
-        haha[i].style.visibility = "hidden"}
-    for (var i = 0; i < haha2.length; i++) {
-        haha2[i].style.visibility = "hidden"}
+    var scene1_objects = document.getElementsByClassName("ett");
+    var speed_types = document.getElementsByClassName("fart");
+    for (var i = 0; i < scene1_objects.length; i++) {
+        scene1_objects[i].style.visibility = "hidden"}
+    for (var i = 0; i < speed_types.length; i++) {
+        speed_types[i].style.visibility = "hidden"}
         flip = false}
     else {
-        var haha = document.getElementsByClassName("ett");
-        var haha2 = document.getElementsByClassName("fart");
-    for (var i = 0; i < haha.length; i++) {
-        haha[i].style.visibility = "visible"}
-        for (var i = 0; i < haha2.length; i++) {
-            haha2[i].style.visibility = "visible"}
+        var scene1_objects = document.getElementsByClassName("ett");
+        var speed_types = document.getElementsByClassName("fart");
+    for (var i = 0; i < scene1_objects.length; i++) {
+        scene1_objects[i].style.visibility = "visible"}
+        for (var i = 0; i < speed_types.length; i++) {
+            speed_types[i].style.visibility = "visible"}
         flip = true}
     }
 
@@ -85,15 +87,15 @@ async function sleep(seconds) {
         return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
       }
 
-async function Kör(){
+async function run(){
     numberofStacks = Number(document.getElementById("input2").value);
     numberofCards = Number(document.getElementById("input").value);
     if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks){
     scenetoggle()
-   
+
 
     let cardStack = []
-    let run = true
+    let run_toggle = true
     let results = []
     let y = 0
     
@@ -129,10 +131,10 @@ async function Kör(){
     
     // poppa sneare kanske
     
-    while(run === true){
+    while(run_toggle === true){
         
-        tabort()
-        PrintaUt(cardStack)
+        remove()
+        Print(cardStack)
         await sleep(speed);
         
 
@@ -165,9 +167,9 @@ async function Kör(){
                 else{
                     console.log("det går inte ut")  
                 }
-                tabort()
-                PrintaUt(cardStack)
-            run = false
+                remove()
+                Print(cardStack)
+            run_toggle = false
     
         }
         }
@@ -178,15 +180,15 @@ async function Kör(){
     
         y += 1
         
-        if(run == false){
+        if(run_toggle == false){
             break
         }
     
         if(y == 50){
             console.log("det går inte ut")
-            tabort()
-            PrintaUt(cardStack)
-            run = false 
+            remove()
+            Print(cardStack)
+            run_toggle = false 
         }
         console.log(y)
     }

@@ -100,7 +100,8 @@ function Print(cardStack){
 
 function remove(){
     var cards = document.getElementsByClassName("kortar")
-    for (var i = 0; i < cards.length.valueOf() ; i++) {
+    let cardValue = cards.length.valueOf()
+    for (var i = 0; i < cardValue ; i++) {
     cards[0].remove()
 }
         }

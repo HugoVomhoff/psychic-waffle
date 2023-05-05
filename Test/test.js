@@ -11,7 +11,7 @@ function setSpeed(speed_value){
    
     var speed_types = document.getElementsByClassName("fart")
     speed = speed_value
-    
+
     for (var i = 0; i < speed_types.length; i++) {
         speed_types[i].style.opacity = "1"}
 
@@ -32,14 +32,14 @@ function setSpeed(speed_value){
 
 
 function createCard(x,y){
-const img = document.createElement("img");
-img.src="Images/baksida kort.png" 
-img.style.width = "100px"
-img.style.position = "fixed"
-img.style.top = (30 + x) + "px"
-img.style.left = (20 + y) + "px"
-img.className = "kortar"
-document.body.appendChild(img)
+    const img = document.createElement("img");
+    img.src="Images/baksida kort.png" 
+    img.style.width = "100px"
+    img.style.position = "fixed"
+    img.style.top = (30 + x) + "px"
+    img.style.left = (20 + y) + "px"
+    img.className = "kortar"
+    document.body.appendChild(img)
 
 }
 

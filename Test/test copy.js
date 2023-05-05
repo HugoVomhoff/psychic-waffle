@@ -6,26 +6,24 @@ let check2 = 0;
 let save;
 let flip = true
 let speed = 1;
+let result;
 
-function setSpeed(speed_value){
-   
-    var speed_types = document.getElementsByClassName("fart")
-    speed = speed_value
-
-    for (var i = 0; i < speed_types.length; i++) {
-        speed_types[i].style.opacity = "1"}
-
+function hastighet(ehm){
+    speed = ehm
+    var haha = document.getElementsByClassName("fart")
+    for (var i = 0; i < haha.length; i++) {
+        haha[i].style.opacity = "1"}
     if (speed == 1){
-        var speed_type = document.getElementById("fartL")
-        speed_type.style.opacity = "0.7"
+        var yo = document.getElementById("fartL")
+        yo.style.opacity = "0.7"
     }
     if (speed == 0.5){
-        var speed_type = document.getElementById("fartM")
-        speed_type.style.opacity = "0.7"
+        var yo = document.getElementById("fartM")
+        yo.style.opacity = "0.7"
     }
     if (speed == 0.2){
-        var speed_type = document.getElementById("fartS")
-        speed_type.style.opacity = "0.7"
+        var yo = document.getElementById("fartS")
+        yo.style.opacity = "0.7"
     }
 }
 
@@ -56,6 +54,19 @@ function PrintaUtResult(hej){
 
 }
 
+
+function skapakort(x,y){
+const img = document.createElement("img");
+img.src="Images/baksida kort.png" 
+img.style.width = "100px"
+img.style.position = "fixed"
+img.style.top = (30 + x) + "px"
+img.style.left = (20 + y) + "px"
+img.className = "kortar"
+document.body.appendChild(img)
+
+}
+
 function SlutSpelat(bob){
     const knapp = document.createElement("button")
     knapp.className = "två"
@@ -72,24 +83,12 @@ function SlutSpelat(bob){
     document.body.appendChild(knapp)
 }
 
-function createCard(x,y){
-    const img = document.createElement("img");
-    img.src="Images/baksida kort.png" 
-    img.style.width = "100px"
-    img.style.position = "fixed"
-    img.style.top = (30 + x) + "px"
-    img.style.left = (20 + y) + "px"
-    img.className = "kortar"
-    document.body.appendChild(img)
-
-}
-
-function Print(cardStack){
+function PrintaUt(hej){
     let O = 0
     let G = 0
-    while (O <= cardStack.length){
-        while (G < cardStack[O]){
-         createCard(G*30,O*125) 
+    while (O <= hej.length){
+        while (G < hej[O]){
+         skapakort(G*30,O*125) 
          G = G + 1  
         }
         G = 0
@@ -98,29 +97,30 @@ function Print(cardStack){
     
 }
 
-function remove(){
-    var cards = document.getElementsByClassName("kortar")
-    for (var i = 0; i < cards.length.valueOf() ; i++) {
-    cards[0].remove()
+function tabort(){
+    var haha = document.getElementsByClassName("kortar")
+    let yo = haha.length.valueOf()
+    for (var i = 0; i < yo ; i++) {
+    haha[0].remove()
 }
         }
 
 function scenetoggle(){
     if (flip == true){
-    var scene1_objects = document.getElementsByClassName("ett");
-    var speed_types = document.getElementsByClassName("fart");
-    for (var i = 0; i < scene1_objects.length; i++) {
-        scene1_objects[i].style.visibility = "hidden"}
-    for (var i = 0; i < speed_types.length; i++) {
-        speed_types[i].style.visibility = "hidden"}
+    var haha = document.getElementsByClassName("ett");
+    var haha2 = document.getElementsByClassName("fart");
+    for (var i = 0; i < haha.length; i++) {
+        haha[i].style.visibility = "hidden"}
+    for (var i = 0; i < haha2.length; i++) {
+        haha2[i].style.visibility = "hidden"}
         flip = false}
     else {
-        var scene1_objects = document.getElementsByClassName("ett");
-        var speed_types = document.getElementsByClassName("fart");
-    for (var i = 0; i < scene1_objects.length; i++) {
-        scene1_objects[i].style.visibility = "visible"}
-        for (var i = 0; i < speed_types.length; i++) {
-            speed_types[i].style.visibility = "visible"}
+        var haha = document.getElementsByClassName("ett");
+        var haha2 = document.getElementsByClassName("fart");
+    for (var i = 0; i < haha.length; i++) {
+        haha[i].style.visibility = "visible"}
+        for (var i = 0; i < haha2.length; i++) {
+            haha2[i].style.visibility = "visible"}
         flip = true}
     }
 
@@ -128,15 +128,15 @@ async function sleep(seconds) {
         return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
       }
 
-async function run(){
+async function Kör(){
     numberofStacks = Number(document.getElementById("input2").value);
     numberofCards = Number(document.getElementById("input").value);
     if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks){
     scenetoggle()
-
+   
 
     let cardStack = []
-    let run_toggle = true
+    let run = true
     let results = []
     let y = 0
     
@@ -172,10 +172,10 @@ async function run(){
     
     // poppa sneare kanske
     
-    while(run_toggle === true){
+    while(run === true){
         
-        remove()
-        Print(cardStack)
+        tabort()
+        PrintaUt(cardStack)
         await sleep(speed);
         
 
@@ -208,10 +208,10 @@ async function run(){
                 else{
                     console.log("det går inte ut")  
                 }
-                remove()
-                Print(cardStack)
-            SlutSpelat(results)
-            run_toggle = false
+                tabort()
+                PrintaUt(cardStack)
+            SlutSpelat(results)    
+            run = false
     
         }
         }
@@ -222,16 +222,16 @@ async function run(){
     
         y += 1
         
-        if(run_toggle == false){
+        if(run == false){
             break
         }
     
         if(y == 50){
             console.log("det går inte ut")
-            remove()
-            Print(cardStack)
-            run_toggle = false 
+            tabort()
+            PrintaUt(cardStack)
             SlutSpelat(results)
+            run = false 
         }
         console.log(y)
     }

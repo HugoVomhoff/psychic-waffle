@@ -6,34 +6,39 @@ let check2 = 0;
 let save;
 let flip = true
 let speed = 1;
-let result;
+let vinst;
 
-function hastighet(ehm){
-    speed = ehm
-    var haha = document.getElementsByClassName("fart")
-    for (var i = 0; i < haha.length; i++) {
-        haha[i].style.opacity = "1"}
+function setSpeed(speed_value){
+   
+    var speed_types = document.getElementsByClassName("fart")
+    speed = speed_value
+
+    for (var i = 0; i < speed_types.length; i++) {
+        speed_types[i].style.opacity = "1"}
+
     if (speed == 1){
-        var yo = document.getElementById("fartL")
-        yo.style.opacity = "0.7"
+        var speed_type = document.getElementById("fartL")
+        speed_type.style.opacity = "0.7"
     }
     if (speed == 0.5){
-        var yo = document.getElementById("fartM")
-        yo.style.opacity = "0.7"
+        var speed_type = document.getElementById("fartM")
+        speed_type.style.opacity = "0.7"
     }
     if (speed == 0.2){
-        var yo = document.getElementById("fartS")
-        yo.style.opacity = "0.7"
+        var speed_type = document.getElementById("fartS")
+        speed_type.style.opacity = "0.7"
     }
 }
 
 
 function resultprint(värde,x,y){
     const p = document.createElement("p");
-    p.innerHTML = värde
+    p.innerHTML = "• " + värde
     p.style.position = "fixed"
-    p.style.top = (30 + x) + "px"
-    p.style.left = (20 + y) + "px"    
+    p.style.top = (15 + x) + "px"
+    p.style.left = (15 + y) + "px"  
+    p.style.fontSize = 30 + "px"
+    p.className = "resultsar"
     document.body.appendChild(p);
 }
 
@@ -42,29 +47,34 @@ function PrintaUtResult(hej){
     let x = 0
     let y = 0
     while (A < hej.length){
-        resultprint(hej[A],(x*30),(y*125))
+        resultprint(hej[A],(x*50),(y*400))
         A = A + 1
         x = x + 1
-        if (x % 5 == 0){
+        if (x % 10 == 0){
             y = y + 1
             x = 0
         }
         
     }
 
-}
+    resultat = document.getElementsByClassName("resultsar")
+    let resultatValue = resultat.length.valueOf()
+    if (vinst == 1) { 
+    resultat[resultatValue - 1].style.color = "rgb(0, 255, 0)"
+    resultat[resultatValue - 2].style.color = "rgb(0, 255, 0)"}
+    if (vinst == 2){
+        let i = 0
+        console.log(resultat[1].innerHTML)
+        console.log(resultat[resultatValue - 1].innerHTML)
+        while (i < resultatValue){
+            if (resultat[i].innerHTML  ==  resultat[resultatValue - 1].innerHTML)[
+                resultat[i].style.color = "rgb(255, 0"
+            ]
+            i = i + 1
+    }
+        resultat[resultatValue - 1].style.color = "rgb(255, 0, 0)"
 
-
-function skapakort(x,y){
-const img = document.createElement("img");
-img.src="Images/baksida kort.png" 
-img.style.width = "100px"
-img.style.position = "fixed"
-img.style.top = (30 + x) + "px"
-img.style.left = (20 + y) + "px"
-img.className = "kortar"
-document.body.appendChild(img)
-
+    }
 }
 
 function SlutSpelat(bob){
@@ -83,12 +93,24 @@ function SlutSpelat(bob){
     document.body.appendChild(knapp)
 }
 
-function PrintaUt(hej){
+function createCard(x,y){
+    const img = document.createElement("img");
+    img.src="Images/baksida kort.png" 
+    img.style.width = "100px"
+    img.style.position = "fixed"
+    img.style.top = (30 + x) + "px"
+    img.style.left = (20 + y) + "px"
+    img.className = "kortar"
+    document.body.appendChild(img)
+
+}
+
+function Print(cardStack){
     let O = 0
     let G = 0
-    while (O <= hej.length){
-        while (G < hej[O]){
-         skapakort(G*30,O*125) 
+    while (O <= cardStack.length){
+        while (G < cardStack[O]){
+         createCard(G*30,O*125) 
          G = G + 1  
         }
         G = 0
@@ -97,30 +119,30 @@ function PrintaUt(hej){
     
 }
 
-function tabort(){
-    var haha = document.getElementsByClassName("kortar")
-    let yo = haha.length.valueOf()
-    for (var i = 0; i < yo ; i++) {
-    haha[0].remove()
+function remove(){
+    var cards = document.getElementsByClassName("kortar")
+    let cardValue = cards.length.valueOf()
+    for (var i = 0; i < cardValue ; i++) {
+    cards[0].remove()
 }
         }
 
 function scenetoggle(){
     if (flip == true){
-    var haha = document.getElementsByClassName("ett");
-    var haha2 = document.getElementsByClassName("fart");
-    for (var i = 0; i < haha.length; i++) {
-        haha[i].style.visibility = "hidden"}
-    for (var i = 0; i < haha2.length; i++) {
-        haha2[i].style.visibility = "hidden"}
+    var scene1_objects = document.getElementsByClassName("ett");
+    var speed_types = document.getElementsByClassName("fart");
+    for (var i = 0; i < scene1_objects.length; i++) {
+        scene1_objects[i].style.visibility = "hidden"}
+    for (var i = 0; i < speed_types.length; i++) {
+        speed_types[i].style.visibility = "hidden"}
         flip = false}
     else {
-        var haha = document.getElementsByClassName("ett");
-        var haha2 = document.getElementsByClassName("fart");
-    for (var i = 0; i < haha.length; i++) {
-        haha[i].style.visibility = "visible"}
-        for (var i = 0; i < haha2.length; i++) {
-            haha2[i].style.visibility = "visible"}
+        var scene1_objects = document.getElementsByClassName("ett");
+        var speed_types = document.getElementsByClassName("fart");
+    for (var i = 0; i < scene1_objects.length; i++) {
+        scene1_objects[i].style.visibility = "visible"}
+        for (var i = 0; i < speed_types.length; i++) {
+            speed_types[i].style.visibility = "visible"}
         flip = true}
     }
 
@@ -128,15 +150,15 @@ async function sleep(seconds) {
         return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
       }
 
-async function Kör(){
+async function run(){
     numberofStacks = Number(document.getElementById("input2").value);
     numberofCards = Number(document.getElementById("input").value);
     if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks){
     scenetoggle()
-   
+
 
     let cardStack = []
-    let run = true
+    let run_toggle = true
     let results = []
     let y = 0
     
@@ -172,10 +194,10 @@ async function Kör(){
     
     // poppa sneare kanske
     
-    while(run === true){
+    while(run_toggle === true){
         
-        tabort()
-        PrintaUt(cardStack)
+        remove()
+        Print(cardStack)
         await sleep(speed);
         
 
@@ -203,15 +225,17 @@ async function Kör(){
         
                 if(results[results.length - 1].toString() == cardStack.toString()){
                     console.log("WINNER")
+                    vinst = 1
                 }
                     
                 else{
                     console.log("det går inte ut")  
+                    vinst = 2
                 }
-                tabort()
-                PrintaUt(cardStack)
-            SlutSpelat(results)    
-            run = false
+                remove()
+                Print(cardStack)
+            SlutSpelat(results)
+            run_toggle = false
     
         }
         }
@@ -222,16 +246,16 @@ async function Kör(){
     
         y += 1
         
-        if(run == false){
+        if(run_toggle == false){
             break
         }
     
-        if(y == 50){
+        if(y == 29){
             console.log("det går inte ut")
-            tabort()
-            PrintaUt(cardStack)
+            remove()
+            Print(cardStack)
+            run_toggle = false 
             SlutSpelat(results)
-            run = false 
         }
         console.log(y)
     }

@@ -5,27 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tja</title>
+    <title>Bulgarisk patiens</title>
+    <script src="test.js"></script>
 </head>
 <body>
-    <div class = "ett" >
-    <script src="test.js"></script>
-    <p id="FU" class="ett">Hur många kort vill du spela med?</p>
-    <p id="FL" class="ett">Hur många högar vill du dela up i?</p>
-    <p id="FP" class="ett">Vilken hastighet?</p>
-    <p id="FAILSAFE" class="ett"></p>
-    <button id="körknapp" class="ett" onclick="run()">Kör!</button>
-    <input id="input" class="ett">
-    <input id="input2" class="ett">
+    <div class="Parent">
+        <div class="spacer"></div>
+        <div class="middlecol">
+            <h1>Bulgarisk patiens</h1>
+            <div class = "ett" id ="ett">
+                <div class="settings">
+                    <p id="FU" class="ett">Hur många kort vill du spela med?  <input id="input" class="ett"> </p>
+                    <p id="FL" class="ett">Hur många högar vill du dela up i? <input id="input2" class="ett"></p>
+                    <p id="FP" class="ett">Vilken hastighet? <button id="fartS"class="fart" onclick="setSpeed(0.2)">snabb</button>
+                        <button id="fartM"class="fart" onclick="setSpeed(0.5)">medium</button>
+                        <button id="fartL"class="fart" onclick="setSpeed(1)">långsam</button></p>
+                    <button id="körknapp" class="ett" onclick="run()">Kör!</button>
+                    
+                    <p id="FAILSAFE" class="ett"></p>
+                    </div>
+                        
+                        <button onclick="scenetoggle()">sceneswap</button>
+                        <button onclick="Print([2,2,5,1,6])">sortera</button>
+                        <button onclick="remove()">tabort</button>
+                    </div>
+            
+            </div>
+        </div>
     </div>
-        <button id="fartS"class="fart" onclick="setSpeed(0.2)">snabb</button>
-        <button id="fartM"class="fart" onclick="setSpeed(0.5)">medium</button>
-        <button id="fartL"class="fart" onclick="setSpeed(1)">långsam</button>
-        <button onclick="scenetoggle()">sceneswap</button>
-        <button onclick="Print([2,2,5,1,6])">sortera</button>
-        <button onclick="remove()">tabort</button>
-    </div>
-
-
+    <div class="spacer"></div>
+</div>
 </body>
 </html>

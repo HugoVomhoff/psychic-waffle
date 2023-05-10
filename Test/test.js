@@ -30,21 +30,21 @@ function setSpeed(speed_value){
 }
 
 
-function resultprint(värde,x,y){
+function printResult(value,x,y){
     const p = document.createElement("p");
-    p.innerHTML = värde
+    p.innerHTML = value
     p.style.position = "fixed"
     p.style.top = (30 + x) + "px"
     p.style.left = (20 + y) + "px"    
     document.body.appendChild(p);
 }
 
-function PrintaUtResult(hej){
+function printResults(hej){
     let A = 0  
     let x = 0
     let y = 0
     while (A < hej.length){
-        resultprint(hej[A],(x*30),(y*125))
+        printResult(hej[A],(x*30),(y*125))
         A = A + 1
         x = x + 1
         if (x % 5 == 0){
@@ -56,7 +56,7 @@ function PrintaUtResult(hej){
 
 }
 
-function SlutSpelat(bob){
+function GameEnded(results){
     const knapp = document.createElement("button")
     knapp.className = "två"
     knapp.innerHTML = "Fortsätt"
@@ -67,7 +67,7 @@ function SlutSpelat(bob){
     knapp.style.height = "75px"
     knapp.style.borderRadius = "20px"
     knapp.addEventListener("click", () => {
-        PrintaUtResult(bob)
+        printResults(results)
     })
     document.body.appendChild(knapp)
 }
@@ -211,7 +211,7 @@ async function run(){
                 }
                 remove()
                 Print(cardStack)
-            SlutSpelat(results)
+            GameEnded(results)
             run_toggle = false
     
         }
@@ -232,7 +232,7 @@ async function run(){
             remove()
             Print(cardStack)
             run_toggle = false 
-            SlutSpelat(results)
+            GameEnded(results)
         }
         console.log(y)
     }

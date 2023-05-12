@@ -64,14 +64,15 @@ function PrintaUtResult(hej){
     resultat[resultatValue - 2].style.color = "rgb(0, 255, 0)"}
     if (vinst == 2){
         let i = 0
-        console.log(resultat[1].innerHTML)
-        console.log(resultat[resultatValue - 1].innerHTML)
         while (i < resultatValue){
-            if (resultat[i].innerHTML  ==  resultat[resultatValue - 1].innerHTML)[
-                resultat[i].style.color = "rgb(255, 0"
-            ]
+            if (resultat[i].innerHTML == resultat[resultatValue - 1].innerHTML){
+                resultat[i].style.color = "rgb(255, 0, 0)"
+            }
             i = i + 1
-    }
+
+        }
+            
+    
         resultat[resultatValue - 1].style.color = "rgb(255, 0, 0)"
 
     }

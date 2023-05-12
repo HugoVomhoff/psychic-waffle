@@ -19,6 +19,10 @@ body {
 
 }
 
+#fartL{
+    opacity: 70%;
+}
+
 #FP{
     position: fixed;
     top: 40%;

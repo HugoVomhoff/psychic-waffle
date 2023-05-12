@@ -63,6 +63,7 @@ function PrintaUtResult(hej){
     document.getElementById("fortsättknapp").addEventListener("click", () => {
         reset()
     })
+    document.getElementById("fortsättknapp").innerHTML = "Restart"
     while (A < hej.length){
         resultprint(hej[A],(x*50),(y*400))
         A = A + 1

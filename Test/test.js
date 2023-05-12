@@ -45,9 +45,12 @@ function resultprint(värde,x,y){
 function reset(){
     document.getElementById("fortsättknapp").remove()
     kort = document.getElementsByClassName("resultsar")
+    scenetoggle()
+    document.getElementById("input2").value = ""
+    document.getElementById("input").value = ""
+    document.getElementById("FAILSAFE").innerHTML = ""
     while (kort.length > 0){
         kort[0].remove()
-        scenetoggle()
     }
 
 }

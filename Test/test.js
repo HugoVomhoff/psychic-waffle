@@ -6,6 +6,7 @@ let check2 = 0;
 let save;
 let flip = true
 let speed = 1;
+let vinst;
 
 function setSpeed(speed_value){
    
@@ -30,34 +31,70 @@ function setSpeed(speed_value){
 }
 
 
-function printResult(value,x,y){
+function resultprint(värde,x,y){
     const p = document.createElement("p");
-    p.innerHTML = value
+    p.innerHTML = "• " + värde
     p.style.position = "fixed"
-    p.style.top = (30 + x) + "px"
-    p.style.left = (20 + y) + "px"    
+    p.style.top = (15 + x) + "px"
+    p.style.left = (15 + y) + "px"  
+    p.style.fontSize = 30 + "px"
+    p.className = "resultsar"
     document.body.appendChild(p);
 }
 
-function printResults(hej){
+function reset(){
+    document.getElementById("fortsättknapp").remove()
+    kort = document.getElementsByClassName("resultsar")
+    while (kort.length > 0){
+        kort[0].remove()
+        scenetoggle()
+    }
+
+}
+
+function PrintaUtResult(hej){
     let A = 0  
     let x = 0
     let y = 0
+    remove()
+    document.getElementById("fortsättknapp").addEventListener("click", () => {
+        reset()
+    })
     while (A < hej.length){
-        printResult(hej[A],(x*30),(y*125))
+        resultprint(hej[A],(x*50),(y*400))
         A = A + 1
         x = x + 1
-        if (x % 5 == 0){
+        if (x % 10 == 0){
             y = y + 1
             x = 0
         }
         
     }
 
+    resultat = document.getElementsByClassName("resultsar")
+    let resultatValue = resultat.length.valueOf()
+    if (vinst == 1) { 
+    resultat[resultatValue - 1].style.color = "rgb(0, 255, 0)"
+    resultat[resultatValue - 2].style.color = "rgb(0, 255, 0)"}
+    if (vinst == 2){
+        let i = 0
+        while (i < resultatValue){
+            if (resultat[i].innerHTML == resultat[resultatValue - 1].innerHTML){
+                resultat[i].style.color = "rgb(255, 0, 0)"
+            }
+            i = i + 1
+
+        }
+            
+    
+        resultat[resultatValue - 1].style.color = "rgb(255, 0, 0)"
+
+    }
 }
 
-function GameEnded(results){
+function SlutSpelat(bob){
     const knapp = document.createElement("button")
+    knapp.setAttribute("id", "fortsättknapp")
     knapp.className = "två"
     knapp.innerHTML = "Fortsätt"
     knapp.style.position = "fixed"
@@ -67,7 +104,7 @@ function GameEnded(results){
     knapp.style.height = "75px"
     knapp.style.borderRadius = "20px"
     knapp.addEventListener("click", () => {
-        printResults(results)
+        PrintaUtResult(bob)
     })
     document.body.appendChild(knapp)
 }
@@ -204,14 +241,16 @@ async function run(){
         
                 if(results[results.length - 1].toString() == cardStack.toString()){
                     console.log("WINNER")
+                    vinst = 1
                 }
                     
                 else{
                     console.log("det går inte ut")  
+                    vinst = 2
                 }
                 remove()
                 Print(cardStack)
-            GameEnded(results)
+            SlutSpelat(results)
             run_toggle = false
     
         }
@@ -227,12 +266,12 @@ async function run(){
             break
         }
     
-        if(y == 50){
+        if(y == 29){
             console.log("det går inte ut")
             remove()
             Print(cardStack)
             run_toggle = false 
-            GameEnded(results)
+            SlutSpelat(results)
         }
         console.log(y)
     }

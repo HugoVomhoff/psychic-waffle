@@ -10,26 +10,18 @@
 </head>
 <body>
     <div class="Parent">
-        <div class="spacer"></div>
+        <h1>Bulgarisk patiens</h1>
         <div class="middlecol">
-            <h1>Bulgarisk patiens</h1>
             <div class = "ett" id ="ett">
                 <div class="settings">
-                    <p id="FU" class="ett">Hur många kort vill du spela med?  <input id="input" class="ett"> </p>
-                    <p id="FL" class="ett">Hur många högar vill du dela up i? <input id="input2" class="ett"></p>
-                    <p id="FP" class="ett">Vilken hastighet? <button id="fartS"class="fart" onclick="setSpeed(0.2)">snabb</button>
-                        <button id="fartM"class="fart" onclick="setSpeed(0.5)">medium</button>
-                        <button id="fartL"class="fart" onclick="setSpeed(1)">långsam</button></p>
+                    <p id="FU" class="ett">Number of Cards:  <input id="input" class="ett"> </p>
+                    <p id="FL" class="ett">Number of cardstacks: <input id="input2" class="ett"></p>
+                    <p id="FP" class="ett">Shuffle speed:  <button id="fartS"class="fart" onclick="setSpeed(0.2)">Fast</button>
+                        <button id="fartM"class="fart" onclick="setSpeed(0.5)">Normal</button>
+                        <button id="fartL"class="fart" onclick="setSpeed(1)">Slow</button></p>
                     <button id="körknapp" class="ett" onclick="run()">Kör!</button>
                     
-                    <p id="FAILSAFE" class="ett"></p>
-                    </div>
-                        
-                        <button onclick="scenetoggle()">sceneswap</button>
-                        <button onclick="Print([2,2,5,1,6])">sortera</button>
-                        <button onclick="remove()">tabort</button>
-                    </div>
-            
+                    <p id="FAILSAFE" class="ett"></p>            
             </div>
         </div>
     </div>

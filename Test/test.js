@@ -174,7 +174,7 @@ async function run(){
     numberofStacks = Number(document.getElementById("input2").value);
     numberofCards = Number(document.getElementById("input").value);
 
-    if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks && numberofCards < 53){
+    if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks && numberofCards < 53 && numberofStacks < 11){
     scenetoggle()
 
 
@@ -284,4 +284,3 @@ async function run(){
 }
 else {document.getElementById("FAILSAFE").innerHTML = "Du måste fylla i två värden! (nummer)";}
 }
-

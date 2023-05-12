@@ -173,8 +173,10 @@ async function sleep(seconds) {
 async function run(){
     numberofStacks = Number(document.getElementById("input2").value);
     numberofCards = Number(document.getElementById("input").value);
-    if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks){
+
+    if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks && numberofCards < 53){
     scenetoggle()
+
 
 
     let cardStack = []

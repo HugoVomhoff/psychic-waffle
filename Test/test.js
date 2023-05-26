@@ -35,8 +35,8 @@ function resultprint(värde,x,y){
     const p = document.createElement("p");
     p.innerHTML = "• " + värde
     p.style.position = "fixed"
-    p.style.top = (15 + x) + "px"
-    p.style.left = (15 + y) + "px"  
+    p.style.top = (150 + x) + "px"
+    p.style.left = (100 + y) + "px"  
     p.style.fontSize = 30 + "px"
     p.className = "resultsar"
     document.body.appendChild(p);

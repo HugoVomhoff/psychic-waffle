@@ -46,8 +46,8 @@ function reset(){
     document.getElementById("fortsättknapp").remove()
     kort = document.getElementsByClassName("resultsar")
     scenetoggle()
-    document.getElementById("input2").value = ""
-    document.getElementById("input").value = ""
+    document.getElementById("cardinput").value = ""
+    document.getElementById("cardstackinput").value = ""
     document.getElementById("FAILSAFE").innerHTML = ""
     while (kort.length > 0){
         kort[0].remove()
@@ -118,8 +118,8 @@ function createCard(x,y){
     img.src="Images/baksida kort.png" 
     img.style.width = "100px"
     img.style.position = "fixed"
-    img.style.top = (30 + x) + "px"
-    img.style.left = (20 + y) + "px"
+    img.style.top = (150 + x) + "px"
+    img.style.left = (50 + y) + "px"
     img.className = "kortar"
     document.body.appendChild(img)
 
@@ -171,8 +171,8 @@ async function sleep(seconds) {
       }
 
 async function run(){
-    numberofStacks = Number(document.getElementById("input2").value);
-    numberofCards = Number(document.getElementById("input").value);
+    numberofStacks = Number(document.getElementById("cardstackinput").value);
+    numberofCards = Number(document.getElementById("cardinput").value);
 
     if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks && numberofCards < 53 && numberofStacks < 11){
     scenetoggle()

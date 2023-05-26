@@ -183,7 +183,7 @@ async function run(){
     let cardStack = []
     let run_toggle = true
     let results = []
-    let y = 0
+    let y = 1
     
     function sort(array){
         let fixedArray = []
@@ -289,7 +289,7 @@ async function run(){
             break
         }
     
-        if(y == 29){
+        if(y == 30){
             console.log("det går inte ut")
             remove()
             Print(cardStack)

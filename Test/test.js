@@ -46,6 +46,7 @@ function reset(){
     document.getElementById("fortsättknapp").remove()
     kort = document.getElementsByClassName("resultsar")
     scenetoggle()
+    vinst = 0
     document.getElementById("cardinput").value = ""
     document.getElementById("cardstackinput").value = ""
     document.getElementById("FAILSAFE").innerHTML = ""

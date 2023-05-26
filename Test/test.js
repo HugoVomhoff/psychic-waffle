@@ -248,10 +248,26 @@ async function run(){
         
                 if(results[results.length - 1].toString() == cardStack.toString()){
                     console.log("WINNER")
+                    const p = document.createElement("p");
+                    p.innerHTML = "Du vann!"
+                    p.style.position = "fixed"
+                    p.style.top = (50) + "px"
+                    p.style.left = (100) + "px"  
+                    p.style.fontSize = 100 + "px"
+                    p.className = "resultsar"
+            document.body.appendChild(p);
                     vinst = 1
                 }
                     
                 else{
+                    const p = document.createElement("p");
+                    p.innerHTML = "Du förlorade!"
+                    p.style.position = "fixed"
+                    p.style.top = (50) + "px"
+                    p.style.left = (100) + "px"  
+                    p.style.fontSize = 100 + "px"
+                    p.className = "resultsar"
+                    document.body.appendChild(p);
                     console.log("det går inte ut")  
                     vinst = 2
                 }
@@ -278,6 +294,14 @@ async function run(){
             remove()
             Print(cardStack)
             run_toggle = false 
+            const p = document.createElement("p");
+            p.innerHTML = "Du förlorade!"
+            p.style.position = "fixed"
+            p.style.top = (50) + "px"
+            p.style.left = (100) + "px"  
+            p.style.fontSize = 100 + "px"
+            p.className = "resultsar"
+            document.body.appendChild(p);
             SlutSpelat(results)
         }
         console.log(y)

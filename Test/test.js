@@ -97,6 +97,18 @@ function PrintaUtResult(hej){
     }
 }
 
+function vinststatus(yo){
+            const p = document.createElement("p");
+            if (yo == "vann") {p.innerHTML = "Du vann!"}
+            else {p.innerHTML = "Du förlorade!"}
+            p.style.position = "fixed"
+            p.style.top = (0) + "px"
+            p.style.left = (100) + "px"  
+            p.style.fontSize = 60 + "px"
+            p.className = "resultsar"
+            document.body.appendChild(p);
+    }
+
 function SlutSpelat(bob){
     const knapp = document.createElement("button")
     knapp.setAttribute("id", "fortsättknapp")
@@ -248,27 +260,12 @@ async function run(){
         
                 if(results[results.length - 1].toString() == cardStack.toString()){
                     console.log("WINNER")
-                    const p = document.createElement("p");
-                    p.innerHTML = "Du vann!"
-                    p.style.position = "fixed"
-                    p.style.top = (50) + "px"
-                    p.style.left = (100) + "px"  
-                    p.style.fontSize = 100 + "px"
-                    p.className = "resultsar"
-            document.body.appendChild(p);
+                    vinststatus("vann")
                     vinst = 1
                 }
                     
                 else{
-                    const p = document.createElement("p");
-                    p.innerHTML = "Du förlorade!"
-                    p.style.position = "fixed"
-                    p.style.top = (50) + "px"
-                    p.style.left = (100) + "px"  
-                    p.style.fontSize = 100 + "px"
-                    p.className = "resultsar"
-                    document.body.appendChild(p);
-                    console.log("det går inte ut")  
+                    vinststatus("förlorade")
                     vinst = 2
                 }
                 remove()
@@ -294,14 +291,7 @@ async function run(){
             remove()
             Print(cardStack)
             run_toggle = false 
-            const p = document.createElement("p");
-            p.innerHTML = "Du förlorade!"
-            p.style.position = "fixed"
-            p.style.top = (50) + "px"
-            p.style.left = (100) + "px"  
-            p.style.fontSize = 100 + "px"
-            p.className = "resultsar"
-            document.body.appendChild(p);
+            vinststatus("förlorade")
             SlutSpelat(results)
         }
         console.log(y)

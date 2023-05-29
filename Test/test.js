@@ -7,6 +7,7 @@ let save;
 let flip = true
 let speed = 1;
 let vinst;
+let kortnummer;
 
 function setSpeed(speed_value){
    
@@ -33,18 +34,30 @@ function setSpeed(speed_value){
 
 function resultprint(värde,x,y){
     const p = document.createElement("p");
-    p.innerHTML = "• " + värde
+    p.innerHTML =  värde
     p.style.position = "fixed"
     p.style.top = (150 + x) + "px"
     p.style.left = (100 + y) + "px"  
     p.style.fontSize = 30 + "px"
     p.className = "resultsar"
+    
+    const s = document.createElement("p");
+    s.innerHTML =  kortnummer + ". "
+    s.style.position = "fixed"
+    s.style.top = (150 + x) + "px"
+    s.style.left = (40 + y) + "px"  
+    s.style.fontSize = 30 + "px"
+    s.className = "siffror"
+
+
     document.body.appendChild(p);
+    document.body.appendChild(s);
 }
 
 function reset(){
     document.getElementById("fortsättknapp").remove()
     kort = document.getElementsByClassName("resultsar")
+    siffror = document.getElementsByClassName("siffror")
     scenetoggle()
     vinst = 0
     document.getElementById("cardinput").value = ""
@@ -53,6 +66,9 @@ function reset(){
     while (kort.length > 0){
         kort[0].remove()
     }
+    while (siffror.length > 0){
+        siffror[0].remove()
+    }
 
 }
 
@@ -60,6 +76,7 @@ function PrintaUtResult(hej){
     let A = 0  
     let x = 0
     let y = 0
+    kortnummer = 1
     remove()
     document.getElementById("fortsättknapp").addEventListener("click", () => {
         reset()
@@ -69,6 +86,7 @@ function PrintaUtResult(hej){
         resultprint(hej[A],(x*50),(y*400))
         A = A + 1
         x = x + 1
+        kortnummer = kortnummer + 1
         if (x % 10 == 0){
             y = y + 1
             x = 0
@@ -85,7 +103,8 @@ function PrintaUtResult(hej){
         let i = 0
         while (i < resultatValue){
             if (resultat[i].innerHTML == resultat[resultatValue - 1].innerHTML){
-                resultat[i].style.color = "rgb(255, 0, 0)"
+                resultat[i].style.color = "rgb(255, 0, 0)";    
+                //siffror[i].style.color = "rgb(255, 0, 0)";
             }
             i = i + 1
 

@@ -1,14 +1,17 @@
 
-let numberofStacks;
-let numberofCards;
-let check1 = 0;
-let check2 = 0;
-let save;
+let numberofStacks
+let numberofCards
+let check1 = 0
+let check2 = 0
+let save
 let flip = true
-let speed = 1;
-let vinst;
-let kortnummer;
+let speed = 1 // sätter standardhastigheten till "långsam"
+let vinst
+let kortnummer
 
+
+// Ändrar timeout-tiden för programmet vilket ändrar tiden mellan varje handling som sker vilket resulterar i ett snabbare eller långsammare spel
+// Sätts med hastighetsnapparna i början av spelet (långsam, mellan, snabb)
 function setSpeed(speed_value){
    
     var speed_types = document.getElementsByClassName("fart")
@@ -31,32 +34,34 @@ function setSpeed(speed_value){
     }
 }
 
-
-function resultprint(värde,x,y){
-    const p = document.createElement("p");
+// Sätter ut ett resultat, samt vilket resultatsnummer det är, på givet x och y-värde
+function resultprint(värde,y,x){
+    const p = document.createElement("p")
     p.innerHTML =  värde
     p.style.position = "fixed"
-    p.style.top = (150 + x) + "px"
-    p.style.left = (100 + y) + "px"  
+    p.style.top = (150 + y) + "px"
+    p.style.left = (100 + x) + "px"  
     p.style.fontSize = 30 + "px"
-    p.className = "resultsar"
+    p.className = "result_value"
     
-    const s = document.createElement("p");
+    const s = document.createElement("p")
     s.innerHTML =  kortnummer + ". "
     s.style.position = "fixed"
-    s.style.top = (150 + x) + "px"
-    s.style.left = (40 + y) + "px"  
+    s.style.top = (150 + y) + "px"
+    s.style.left = (40 + x) + "px"  
     s.style.fontSize = 30 + "px"
     s.className = "siffror"
 
 
-    document.body.appendChild(p);
-    document.body.appendChild(s);
+    document.body.appendChild(p)
+    document.body.appendChild(s)
 }
 
+// Sätter alla värden till standard samt tar bort allt som kommit fram på skärmen under spelomgången.
+// Ser alltså till att allt ser ut på samma sätt som när spelet började
 function reset(){
     document.getElementById("fortsättknapp").remove()
-    kort = document.getElementsByClassName("resultsar")
+    kort = document.getElementsByClassName("result_value")
     siffror = document.getElementsByClassName("siffror")
     scenetoggle()
     vinst = 0
@@ -72,29 +77,33 @@ function reset(){
 
 }
 
-function PrintaUtResult(hej){
+// Skapar resultatscenen och ser till så att alla resultat visas
+function PrintaUtResult(cardstacks){
     let A = 0  
     let x = 0
     let y = 0
     kortnummer = 1
     remove()
+
+    // Visar en knapp för att starta om spelet
     document.getElementById("fortsättknapp").addEventListener("click", () => {
         reset()
     })
     document.getElementById("fortsättknapp").innerHTML = "Restart"
-    while (A < hej.length){
-        resultprint(hej[A],(x*50),(y*400))
-        A = A + 1
-        x = x + 1
-        kortnummer = kortnummer + 1
+    while (A < cardstacks.length){
+        resultprint(cardstacks[A],(x*50),(y*400))
+        A += 1
+        x += 1
+        kortnummer += 1
         if (x % 10 == 0){
-            y = y + 1
+            y += 1
             x = 0
         }
         
     }
 
-    resultat = document.getElementsByClassName("resultsar")
+    // Färglägger för att visa vilka utfall som antingen gav en vinst eller förlust med antingen grön eller röd
+    resultat = document.getElementsByClassName("result_value")
     siffror2 = document.getElementsByClassName("siffror")
     let resultatValue = resultat.length.valueOf()
     let sifferValue = siffror2.length.valueOf()
@@ -108,8 +117,8 @@ function PrintaUtResult(hej){
         let i = 0
         while (i < resultatValue){
             if (resultat[i].innerHTML == resultat[resultatValue - 1].innerHTML){
-                resultat[i].style.color = "rgb(255, 0, 0)";    
-                siffror2[(i-1)].style.color = "rgb(255, 0, 0)";
+                resultat[i].style.color = "rgb(255, 0, 0)"  
+                siffror2[(i-1)].style.color = "rgb(255, 0, 0)"
             }
             i = i + 1
 
@@ -121,19 +130,23 @@ function PrintaUtResult(hej){
     }
 }
 
-function vinststatus(yo){
-            const p = document.createElement("p");
-            if (yo == "vann") {p.innerHTML = "Du vann!"}
+
+// Kollar om ditt resultat är en vinst eller en förlust och printar baserat på du "du vann" eller "du förlorade"
+function vinststatus(vinststatus){
+            const p = document.createElement("p")
+            if (vinststatus == "vann") {p.innerHTML = "Du vann!"}
             else {p.innerHTML = "Du förlorade!"}
             p.style.position = "fixed"
             p.style.top = (0) + "px"
             p.style.left = (100) + "px"  
             p.style.fontSize = 60 + "px"
-            p.className = "resultsar"
-            document.body.appendChild(p);
+            p.className = "result_value"
+            document.body.appendChild(p)
     }
 
-function SlutSpelat(bob){
+
+// Skapar en knapp för att visa resultaten
+function SlutSpelat(cardstacks){
     const knapp = document.createElement("button")
     knapp.setAttribute("id", "fortsättknapp")
     knapp.className = "två"
@@ -145,57 +158,64 @@ function SlutSpelat(bob){
     knapp.style.height = "75px"
     knapp.style.borderRadius = "20px"
     knapp.addEventListener("click", () => {
-        PrintaUtResult(bob)
+        PrintaUtResult(cardstacks)
     })
     document.body.appendChild(knapp)
 }
 
-function createCard(x,y){
-    const img = document.createElement("img");
+// Skapar ett kort och lägger det på givet x och y värde (på skärmen).
+function createCard(y,x){
+    const img = document.createElement("img")
     img.src="Images/baksida kort.png" 
     img.style.width = "100px"
     img.style.position = "fixed"
-    img.style.top = (150 + x) + "px"
-    img.style.left = (50 + y) + "px"
-    img.className = "kortar"
+    img.style.top = (150 + y) + "px"
+    img.style.left = (50 + x) + "px"
+    img.className = "kort"
     document.body.appendChild(img)
 
 }
 
+// Lägger med hjälp av funktionen "create card" ut alla kort som är med i spelet på skärmen
 function Print(cardStack){
-    let O = 0
-    let G = 0
-    while (O <= cardStack.length){
-        while (G < cardStack[O]){
-         createCard(G*30,O*125) 
-         G = G + 1  
+    let counter_1 = 0
+    let counter_2 = 0
+    while (counter_1 <= cardStack.length){
+        while (counter_2 < cardStack[counter_1]){
+         createCard(counter_2*30,counter_1*125) 
+         counter_2 = counter_2 + 1  
         }
-        G = 0
-        O = O + 1
+        counter_2 = 0
+        counter_1 = counter_1 + 1
     }
     
 }
 
+// Tar bort alla kort från skärmen
 function remove(){
-    var cards = document.getElementsByClassName("kortar")
+    var cards = document.getElementsByClassName("kort")
     let cardValue = cards.length.valueOf()
     for (var i = 0; i < cardValue ; i++) {
     cards[0].remove()
 }
         }
 
+
+// Gömmer / visar förstascenen
 function scenetoggle(){
+    
+    
     if (flip == true){
-    var scene1_objects = document.getElementsByClassName("ett");
-    var speed_types = document.getElementsByClassName("fart");
+    var scene1_objects = document.getElementsByClassName("ett")
+    var speed_types = document.getElementsByClassName("fart")
     for (var i = 0; i < scene1_objects.length; i++) {
         scene1_objects[i].style.visibility = "hidden"}
     for (var i = 0; i < speed_types.length; i++) {
         speed_types[i].style.visibility = "hidden"}
         flip = false}
     else {
-        var scene1_objects = document.getElementsByClassName("ett");
-        var speed_types = document.getElementsByClassName("fart");
+        var scene1_objects = document.getElementsByClassName("ett")
+        var speed_types = document.getElementsByClassName("fart")
     for (var i = 0; i < scene1_objects.length; i++) {
         scene1_objects[i].style.visibility = "visible"}
         for (var i = 0; i < speed_types.length; i++) {
@@ -203,24 +223,31 @@ function scenetoggle(){
         flip = true}
     }
 
+
+// Tvingar programmet att vänta en given tid innan functionen körs
 async function sleep(seconds) {
-        return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+        return new Promise((resolve) => setTimeout(resolve, seconds * 1000))
       }
 
-async function run(){
-    numberofStacks = Number(document.getElementById("cardstackinput").value);
-    numberofCards = Number(document.getElementById("cardinput").value);
 
+// Starta spelet
+async function run(){
+   
+    // Inputvariabler
+    numberofStacks = Number(document.getElementById("cardstackinput").value)
+    numberofCards = Number(document.getElementById("cardinput").value)
+
+    // Failsafe för om man matar in fel
     if (isNaN(numberofStacks) == false && numberofStacks != "" && isNaN(numberofCards) == false && numberofCards != "" && numberofCards >= numberofStacks && numberofCards < 53 && numberofStacks < 11){
     scenetoggle()
-
-
 
     let cardStack = []
     let run_toggle = true
     let results = []
     let y = 1
     
+
+    // Sorterar en lista i storleksordning
     function sort(array){
         let fixedArray = []
         x = [...array]
@@ -234,7 +261,7 @@ async function run(){
     }
     
     
-    
+    // Sätter upp en slumpad andel av de totala korten i varje hög
     for (i=0; i < numberofStacks; i++) {
         cardStack.push(1)
     }
@@ -245,49 +272,47 @@ async function run(){
         cardStack[allocated_cardstack] += 1
     }
 
-    
+    // Sorterar dina högar i storleksordning
     cardStack = sort(cardStack)
+    //Lägger till de nuvarande högarna i resultatlistan
     results.push([...cardStack])
     
-    console.log(results)
     
-    // poppa sneare kanske
-    
+    // Mainloopen
     while(run_toggle === true){
         
         remove()
-        Print(cardStack)
-        await sleep(speed);
+        await sleep(speed)
         
-
+        // Kör en "runda av patiansen" och tar ett kort från varje hög
         for (i=0; i < cardStack.length; i++){
             cardStack[i] = cardStack[i] - 1   
         } 
-     
+        
+        // Lägger till en hög med ett kort taget från alla de andra högarna
         cardStack.push(cardStack.length)
+
+        // Sorterar i storleksordning 
         cardStack = sort(cardStack)
         
 
-
+        // Tar bort alla tomma högar
         while(cardStack[0] == 0){
                 cardStack.splice(0, 1)
                 }
     
-    
+        // Kollar om vi har vunnit eller förlorat
         for(i=0; i<results.length; i++){
             
-            
+            // Om de nuvarande högarna varit på samma sätt innan så har vi antingen vunnit eller förlorat
             if(results[i].toString() == cardStack.toString()){
             
-            
-                console.log(results)
-        
+                // Om de nuvarande högarna motsvarar förra omgångens högar har vi vunnit
                 if(results[results.length - 1].toString() == cardStack.toString()){
-                    console.log("WINNER")
                     vinststatus("vann")
                     vinst = 1
                 }
-                    
+                // Annars har vi förlorat
                 else{
                     vinststatus("förlorade")
                     vinst = 2
@@ -299,27 +324,26 @@ async function run(){
     
         }
         }
-    
-        results.push([...cardStack])
-    
-        console.log(cardStack)
-    
-        y += 1
         
+        
+        results.push([...cardStack])
+
+        
+        // Varje runda adderas 1 till räknren och om vi når 30 rundar har man automatiskt förlorat
+        y += 1
         if(run_toggle == false){
             break
         }
     
         if(y == 30){
-            console.log("det går inte ut")
             remove()
             Print(cardStack)
             run_toggle = false 
             vinststatus("förlorade")
             SlutSpelat(results)
         }
-        console.log(y)
     }
 }
-else {document.getElementById("FAILSAFE").innerHTML = "Du måste fylla i två värden! (nummer)";}
+// Om något blivit fel så promtar vi med att skriva in korrekta värden
+else {document.getElementById("FAILSAFE").innerHTML = "Du måste fylla i två värden! (nummer)"}
 }

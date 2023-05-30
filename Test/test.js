@@ -95,16 +95,21 @@ function PrintaUtResult(hej){
     }
 
     resultat = document.getElementsByClassName("resultsar")
+    siffror2 = document.getElementsByClassName("siffror")
     let resultatValue = resultat.length.valueOf()
+    let sifferValue = siffror2.length.valueOf()
     if (vinst == 1) { 
     resultat[resultatValue - 1].style.color = "rgb(0, 255, 0)"
-    resultat[resultatValue - 2].style.color = "rgb(0, 255, 0)"}
+    resultat[resultatValue - 2].style.color = "rgb(0, 255, 0)"
+    siffror2[sifferValue - 1].style.color = "rgb(0, 255, 0)"
+    siffror2[sifferValue - 2].style.color = "rgb(0, 255, 0)"
+    }
     if (vinst == 2){
         let i = 0
         while (i < resultatValue){
             if (resultat[i].innerHTML == resultat[resultatValue - 1].innerHTML){
                 resultat[i].style.color = "rgb(255, 0, 0)";    
-                //siffror[i].style.color = "rgb(255, 0, 0)";
+                siffror2[(i-1)].style.color = "rgb(255, 0, 0)";
             }
             i = i + 1
 

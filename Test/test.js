@@ -137,7 +137,7 @@ function SlutSpelat(bob){
     const knapp = document.createElement("button")
     knapp.setAttribute("id", "fortsättknapp")
     knapp.className = "två"
-    knapp.innerHTML = "Fortsätt"
+    knapp.innerHTML = "Resultat"
     knapp.style.position = "fixed"
     knapp.style.top = 40 + "%"
     knapp.style.right = 10 + "%"

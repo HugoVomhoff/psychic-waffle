@@ -233,7 +233,7 @@ async function run(){
     let cardStack = []
     let run_toggle = true
     let results = []
-    let y = 1
+    let round_counter = 1
     
     // Sorterar en lista i storleksordning
     function sort(array){
@@ -319,12 +319,12 @@ async function run(){
         results.push([...cardStack])
     
         // Varje runda adderas 1 till räknren och om vi når 30 rundar har man automatiskt förlorat
-        y += 1
+        round_counter += 1
         if(run_toggle == false){
             break
         }
     
-        if(y == 30){
+        if(round_counter == 30){
             remove()
             Print(cardStack)
             run_toggle = false 
